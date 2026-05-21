@@ -89,7 +89,10 @@ export function ForceGraph({
       )
       .force('charge', d3.forceManyBody().strength(-300))
       .force('center', d3.forceCenter(width / 2, h / 2))
-      .force('collide', d3.forceCollide(36));
+      .force('collide', d3.forceCollide(36))
+      .alphaDecay(0.05)
+      .alphaMin(0.01)
+      .velocityDecay(0.45);
     simRef.current = sim;
 
     // Edges
