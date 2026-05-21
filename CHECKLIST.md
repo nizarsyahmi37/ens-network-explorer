@@ -50,7 +50,7 @@
 ### `useENS` Hook (`frontend/src/hooks/useENS.ts`)
 - [x] Accepts `ensName: string`
 - [x] Returns `{ profile, address, loading, error }`
-- [ ] Debounces resolution calls
+- [x] Debounces resolution calls
 - [x] Memoises results per name (avoid re-fetching on re-render)
 
 ### Profile Page (`frontend/src/pages/ProfilePage.tsx`)
@@ -67,7 +67,7 @@
 - [x] Display description if populated
 - [x] Display website link if populated
 - [x] Display social badges (Twitter, GitHub, Discord, Telegram, Email) — only if populated
-- [ ] Responsive layout (mobile 375 px + desktop)
+- [x] Responsive layout (mobile 375 px + desktop)
 
 ### Home Page (`/`)
 - [x] Search bar: text input + submit button
@@ -105,7 +105,7 @@
 - [x] Pan & zoom via `d3.zoom()`
 - [x] On node click: call `onNodeClick(ensName)` prop
 - [x] On edge click: call `onEdgeClick(edge)` prop (needed for M3)
-- [ ] Simulation stabilises within 2 s for 50 nodes
+- [x] Simulation stabilises within 2 s for 50 nodes
 
 ### Graph Page (`frontend/src/pages/GraphPage.tsx`)
 - [x] Textarea for ENS pair input
@@ -194,15 +194,15 @@
 
 ### UX Polish
 - [x] Loading skeletons on profile page
-- [ ] Error boundary wrapping graph component
+- [x] Error boundary wrapping graph component
 - [x] Empty state when no edges exist: "Add your first edge above"
-- [ ] Mobile: profile page renders cleanly at 375 px
+- [x] Mobile: profile page renders cleanly at 375 px
 - [x] Favicon and `<title>` tags set
 
 ### Hardening
 - [x] ENS input sanitised (trim, lowercase, validate `.eth`)
-- [ ] API client handles network errors gracefully (show toast)
-- [ ] `console.error` removed or replaced with proper error handling
+- [x] API client handles network errors gracefully (show toast)
+- [x] `console.error` removed or replaced with proper error handling
 - [x] No API keys or secrets in frontend bundle
 
 ### Final Deployment Checks
