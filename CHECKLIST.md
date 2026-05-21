@@ -32,47 +32,47 @@
 > Goal: `/profile/vitalik.eth` renders a complete, well-styled profile card.
 
 ### ENS Resolution Service (`frontend/src/services/ens.ts`)
-- [ ] Initialise `ethers.JsonRpcProvider` pointing to `https://cloudflare-eth.com`
-- [ ] `resolveAddress(ensName)` → returns checksummed address or `null`
-- [ ] `fetchTextRecords(ensName)` → fetches the following records in parallel:
-  - [ ] `avatar`
-  - [ ] `name` (display name)
-  - [ ] `description`
-  - [ ] `url`
-  - [ ] `com.twitter`
-  - [ ] `com.github`
-  - [ ] `com.discord`
-  - [ ] `org.telegram`
-  - [ ] `email`
-- [ ] Handle resolver-not-found gracefully (name doesn't exist → return empty object)
-- [ ] Export `ENSProfile` TypeScript interface
+- [x] Initialise `ethers.JsonRpcProvider` pointing to `https://cloudflare-eth.com`
+- [x] `resolveAddress(ensName)` → returns checksummed address or `null`
+- [x] `fetchTextRecords(ensName)` → fetches the following records in parallel:
+  - [x] `avatar`
+  - [x] `name` (display name)
+  - [x] `description`
+  - [x] `url`
+  - [x] `com.twitter`
+  - [x] `com.github`
+  - [x] `com.discord`
+  - [x] `org.telegram`
+  - [x] `email`
+- [x] Handle resolver-not-found gracefully (name doesn't exist → return empty object)
+- [x] Export `ENSProfile` TypeScript interface
 
 ### `useENS` Hook (`frontend/src/hooks/useENS.ts`)
-- [ ] Accepts `ensName: string`
-- [ ] Returns `{ profile, address, loading, error }`
+- [x] Accepts `ensName: string`
+- [x] Returns `{ profile, address, loading, error }`
 - [ ] Debounces resolution calls
-- [ ] Memoises results per name (avoid re-fetching on re-render)
+- [x] Memoises results per name (avoid re-fetching on re-render)
 
 ### Profile Page (`frontend/src/pages/ProfilePage.tsx`)
-- [ ] Read `:ensName` from URL params
-- [ ] Call `useENS(ensName)`
-- [ ] Show loading skeleton while resolving
-- [ ] Show clear error state if name not found or resolution fails
-- [ ] Render `<ProfileCard>` when data available
+- [x] Read `:ensName` from URL params
+- [x] Call `useENS(ensName)`
+- [x] Show loading skeleton while resolving
+- [x] Show clear error state if name not found or resolution fails
+- [x] Render `<ProfileCard>` when data available
 
 ### `<ProfileCard>` Component
-- [ ] Display avatar image (fallback to blockie / placeholder if no `avatar` record)
-- [ ] Display ENS name as heading
-- [ ] Display resolved address (truncated with copy-to-clipboard button)
-- [ ] Display description if populated
-- [ ] Display website link if populated
-- [ ] Display social badges (Twitter, GitHub, Discord, Telegram, Email) — only if populated
+- [x] Display avatar image (fallback to blockie / placeholder if no `avatar` record)
+- [x] Display ENS name as heading
+- [x] Display resolved address (truncated with copy-to-clipboard button)
+- [x] Display description if populated
+- [x] Display website link if populated
+- [x] Display social badges (Twitter, GitHub, Discord, Telegram, Email) — only if populated
 - [ ] Responsive layout (mobile 375 px + desktop)
 
 ### Home Page (`/`)
-- [ ] Search bar: text input + submit button
-- [ ] On submit, navigate to `/profile/:ensName`
-- [ ] Input validation: must end in `.eth`
+- [x] Search bar: text input + submit button
+- [x] On submit, navigate to `/profile/:ensName`
+- [x] Input validation: must end in `.eth`
 
 ### Verification
 - [ ] `vitalik.eth` profile loads with avatar, bio, social links ✅
