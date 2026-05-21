@@ -75,8 +75,8 @@
 - [x] Input validation: must end in `.eth`
 
 ### Verification
-- [ ] `vitalik.eth` profile loads with avatar, bio, social links ✅
-- [ ] `nonexistent-xyz-12345.eth` shows error state ✅
+- [x] `vitalik.eth` profile loads with avatar, bio, social links ✅
+- [x] `nonexistent-xyz-12345.eth` shows error state ✅
 - [x] Direct URL `/profile/vitalik.eth` works on page refresh ✅
 - [ ] **Live URL confirmed with examiner** ✅
 
