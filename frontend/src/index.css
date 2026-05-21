@@ -38,7 +38,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-weight: 300;
   color: var(--c-ink);
-  background: var(--c-cream);
+  background: var(--c-paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
