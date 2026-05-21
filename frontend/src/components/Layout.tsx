@@ -11,7 +11,7 @@ export function Layout() {
         </main>
         <footer className="px-9 pb-10 pt-6 text-center" style={{ borderTop: '0.5px solid var(--c-border-gold)' }}>
           <div className="t-caption" style={{ maxWidth: 360, margin: '0 auto' }}>
-            Resolved via Cloudflare Ethereum Gateway · Mainnet
+            Resolved via PublicNode Ethereum RPC · Mainnet
             <br />
             The art of meaningful emptiness — 間 <em>(Ma)</em>
           </div>

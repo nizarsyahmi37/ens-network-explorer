@@ -51,7 +51,7 @@ export function ProfileCard({ profile }: { profile: ENSProfile }) {
         <div className="ma-rule-line" />
       </div>
       <div className="t-caption text-center text-[11px]" style={{ marginTop: 12 }}>
-        Resolved on-chain via Cloudflare Ethereum Gateway
+        Resolved on-chain via PublicNode Ethereum RPC
       </div>
     </article>
   );

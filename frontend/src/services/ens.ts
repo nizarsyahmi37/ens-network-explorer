@@ -2,7 +2,7 @@ import { JsonRpcProvider, getAddress } from 'ethers';
 import type { ENSProfile } from '../types';
 import { normaliseEns } from '../lib/ens-utils';
 
-const RPC_URL = 'https://cloudflare-eth.com';
+const RPC_URL = 'https://ethereum-rpc.publicnode.com';
 
 let providerSingleton: JsonRpcProvider | null = null;
 function getProvider(): JsonRpcProvider {
