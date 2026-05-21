@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { ForceGraph, edgeKey } from '../components/Graph/ForceGraph';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 import { EdgeEditor } from '../components/EdgeEditor/EdgeEditor';
 import { useGraph } from '../hooks/useGraph';
 import { mergeGraphData, parsePairInput } from '../services/parser';
@@ -200,13 +201,15 @@ export function GraphPage() {
               </button>
             </div>
           ) : (
-            <ForceGraph
-              data={merged}
-              height={560}
-              onNodeClick={(name) => navigate(`/profile/${name}`)}
-              onEdgeClick={onEdgeClick}
-              selectedEdgeKey={selectedKey}
-            />
+            <ErrorBoundary onReset={() => setSelectedEdge(null)}>
+              <ForceGraph
+                data={merged}
+                height={560}
+                onNodeClick={(name) => navigate(`/profile/${name}`)}
+                onEdgeClick={onEdgeClick}
+                selectedEdgeKey={selectedKey}
+              />
+            </ErrorBoundary>
           )}
 
           {selectedEdge && (
