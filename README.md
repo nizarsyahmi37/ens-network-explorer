@@ -39,7 +39,7 @@
 ### Infrastructure
 - **Frontend** → Vercel (free tier)
 - **Backend + DB** → Render (free tier)
-- **Ethereum RPC** → Cloudflare Ethereum Gateway (public, no key required)
+- **Ethereum RPC** → PublicNode Ethereum RPC (public, no key required)
 
 ---
 
