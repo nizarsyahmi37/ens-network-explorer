@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { toast } from 'sonner';
 import { isValidEnsName, normaliseEns } from '../../lib/ens-utils';
 
 interface EdgeEditorProps {
@@ -10,7 +11,6 @@ export function EdgeEditor({ onAdd, busy }: EdgeEditorProps) {
   const [source, setSource] = useState('');
   const [target, setTarget] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
 
   const s = normaliseEns(source);
   const t = normaliseEns(target);
@@ -19,19 +19,19 @@ export function EdgeEditor({ onAdd, busy }: EdgeEditorProps) {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
-    setSuccess(null);
     if (!valid) {
       setError('Both fields must be valid .eth names and differ.');
       return;
     }
     try {
       await onAdd(s, t);
-      setSuccess(`${s} ↔ ${t}`);
+      toast.success(`Edge added · ${s} ↔ ${t}`);
       setSource('');
       setTarget('');
-      setTimeout(() => setSuccess(null), 2200);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to add edge');
+      const message = err instanceof Error ? err.message : 'Failed to add edge';
+      setError(message);
+      toast.error(message);
     }
   }
 
@@ -74,11 +74,6 @@ export function EdgeEditor({ onAdd, busy }: EdgeEditorProps) {
         {error && (
           <span className="text-[11px] tracking-[0.05em]" style={{ color: '#8B4513' }}>
             {error}
-          </span>
-        )}
-        {success && (
-          <span className="text-[11px] tracking-[0.08em] uppercase" style={{ color: 'var(--c-gold-dark)' }}>
-            Added · {success}
           </span>
         )}
       </div>

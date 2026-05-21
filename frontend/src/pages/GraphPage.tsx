@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 import { ForceGraph, edgeKey } from '../components/Graph/ForceGraph';
 import { EdgeEditor } from '../components/EdgeEditor/EdgeEditor';
 import { useGraph } from '../hooks/useGraph';
@@ -86,8 +87,11 @@ export function GraphPage() {
       const realId = id.slice(3);
       try {
         await removeEdge(realId);
+        toast.success('Edge removed');
       } catch (err) {
-        console.warn('[graph] delete failed', err);
+        const message = err instanceof Error ? err.message : 'Failed to remove edge';
+        toast.error(message);
+        return;
       }
     } else {
       // Local-only edge — remove from textarea-pasted set

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { toast } from 'sonner';
 import type { PersistedEdge } from '../types';
 import * as api from '../services/api';
 
@@ -23,7 +24,9 @@ export function useGraph(): UseGraphResult {
       const next = await api.getEdges();
       setEdges(next);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load edges');
+      const message = err instanceof Error ? err.message : 'Failed to load edges';
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }
