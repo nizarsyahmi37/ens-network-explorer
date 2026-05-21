@@ -149,7 +149,7 @@
 - [x] Wire into `config/urls.py` under `/api/`
 
 ### CORS + Security
-- [ ] `CORS_ALLOWED_ORIGINS` set to deployed Vercel URL
+- [x] `CORS_ALLOWED_ORIGINS` set to deployed Vercel URL
 - [x] `SECRET_KEY` read from environment variable
 - [x] `DEBUG=False` in production settings
 - [x] `ALLOWED_HOSTS` configured
