@@ -18,8 +18,11 @@ export function ProfileCard({ profile }: { profile: ENSProfile }) {
       <div className="flex flex-col items-center text-center gap-4">
         <Avatar src={avatarUrl} name={profile.name} size={104} />
 
-        <div>
-          <h2 className="t-display text-[34px]" style={{ fontWeight: 400 }}>
+        <div className="w-full">
+          <h2
+            className="t-display text-[24px] sm:text-[32px]"
+            style={{ fontWeight: 400, wordBreak: 'break-word', lineHeight: 1.2 }}
+          >
             <span className="t-display-em">{profile.name}</span>
           </h2>
           {profile.displayName && profile.displayName !== profile.name && (
@@ -28,7 +31,7 @@ export function ProfileCard({ profile }: { profile: ENSProfile }) {
         </div>
 
         {profile.address && (
-          <div className="inline-flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <code className="t-mono text-[12px]" title={profile.address}>
               {truncateAddress(profile.address, 6, 5)}
             </code>

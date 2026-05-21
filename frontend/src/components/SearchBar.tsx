@@ -28,7 +28,7 @@ export function SearchBar({ initialValue = '', placeholder = 'vitalik.eth', auto
     <form onSubmit={onSubmit} className="w-full" noValidate>
       <div className="flex items-stretch gap-2">
         <input
-          className="input-mono flex-1"
+          className="input-mono flex-1 min-w-0"
           type="text"
           spellCheck={false}
           autoComplete="off"
@@ -42,7 +42,7 @@ export function SearchBar({ initialValue = '', placeholder = 'vitalik.eth', auto
           aria-label="ENS name"
           aria-invalid={showError}
         />
-        <button type="submit" className="btn-gold" disabled={!valid}>
+        <button type="submit" className="btn-gold whitespace-nowrap" disabled={!valid}>
           Resolve
         </button>
       </div>

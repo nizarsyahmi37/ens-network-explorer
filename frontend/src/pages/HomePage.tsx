@@ -7,7 +7,7 @@ export function HomePage() {
   return (
     <div className="mx-auto max-w-[640px]">
       <div className="text-center mb-10">
-        <h2 className="t-display text-[40px] sm:text-[48px]">
+        <h2 className="t-display text-[32px] sm:text-[44px] lg:text-[48px]" style={{ wordBreak: 'break-word' }}>
           Network of <span className="t-display-em">Names</span>
         </h2>
         <p className="t-body mt-4 max-w-[480px] mx-auto">

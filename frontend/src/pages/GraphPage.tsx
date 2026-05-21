@@ -107,7 +107,7 @@ export function GraphPage() {
   return (
     <div>
       <div className="text-center mb-8">
-        <h2 className="t-display text-[36px] sm:text-[44px]">
+        <h2 className="t-display text-[28px] sm:text-[36px] lg:text-[44px]" style={{ wordBreak: 'break-word' }}>
           The <span className="t-display-em">Web</span> of Names
         </h2>
         <p className="t-body mt-3 max-w-[520px] mx-auto">
@@ -214,17 +214,22 @@ export function GraphPage() {
 
           {selectedEdge && (
             <div
-              className="absolute top-4 right-4 card"
-              style={{ padding: 16, minWidth: 240, boxShadow: '0 6px 20px -8px rgba(28,25,23,0.18)' }}
+              className="absolute top-4 right-4 left-4 sm:left-auto card"
+              style={{
+                padding: 16,
+                maxWidth: 320,
+                marginLeft: 'auto',
+                boxShadow: '0 6px 20px -8px rgba(28,25,23,0.18)',
+              }}
               role="dialog"
               aria-label="Confirm edge deletion"
             >
               <div className="t-label text-[10px] mb-2">Remove Edge?</div>
-              <div className="t-mono text-[12px]" style={{ color: 'var(--c-ink)' }}>
+              <div className="t-mono text-[12px]" style={{ color: 'var(--c-ink)', wordBreak: 'break-all' }}>
                 {selectedEdge.source}
               </div>
               <div className="t-caption text-center" style={{ margin: '4px 0' }}>↕</div>
-              <div className="t-mono text-[12px]" style={{ color: 'var(--c-ink)' }}>
+              <div className="t-mono text-[12px]" style={{ color: 'var(--c-ink)', wordBreak: 'break-all' }}>
                 {selectedEdge.target}
               </div>
               <div className="flex gap-2 mt-4">

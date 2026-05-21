@@ -5,12 +5,12 @@ export function Masthead() {
   const onGraph = location.pathname.startsWith('/graph');
 
   return (
-    <header className="px-9 pt-12 pb-8 text-center border-b" style={{ borderColor: 'var(--c-border-gold)' }}>
+    <header className="px-6 sm:px-9 pt-10 sm:pt-12 pb-8 text-center border-b" style={{ borderColor: 'var(--c-border-gold)' }}>
       <Link to="/" className="inline-block no-underline" aria-label="Home">
-        <div className="font-mono font-light text-[64px] leading-none" style={{ color: 'var(--c-gold)', opacity: 0.85 }}>
+        <div className="font-mono font-light text-[52px] sm:text-[64px] leading-none" style={{ color: 'var(--c-gold)', opacity: 0.85 }}>
           間
         </div>
-        <h1 className="t-display mt-3 text-[28px] sm:text-[34px]">Japandi ENS</h1>
+        <h1 className="t-display mt-3 text-[26px] sm:text-[34px]">Japandi ENS</h1>
         <div className="t-label text-[10px] mt-2" style={{ letterSpacing: '0.28em' }}>
           Network Explorer · v1.0
         </div>
