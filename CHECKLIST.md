@@ -114,10 +114,10 @@
 - [x] Graph section sits below input panel
 
 ### Verification
-- [ ] 5-pair input renders correct graph ✅
-- [ ] 50-pair input renders without layout errors ✅
-- [ ] Clicking `vitalik.eth` node navigates to `/profile/vitalik.eth` ✅
-- [ ] Pan and zoom work on desktop ✅
+- [x] 5-pair input renders correct graph ✅
+- [x] 50-pair input renders without layout errors ✅
+- [x] Clicking `vitalik.eth` node navigates to `/profile/vitalik.eth` ✅
+- [x] Pan and zoom work on desktop ✅
 
 ---
 
