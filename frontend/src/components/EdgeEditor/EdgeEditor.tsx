@@ -72,7 +72,7 @@ export function EdgeEditor({ onAdd, busy }: EdgeEditorProps) {
           {busy ? 'Saving…' : 'Add Edge'}
         </button>
         {error && (
-          <span className="text-[11px] tracking-[0.05em]" style={{ color: '#8B4513' }}>
+          <span className="text-[11px] tracking-[0.05em]" style={{ color: 'var(--c-rust)' }}>
             {error}
           </span>
         )}

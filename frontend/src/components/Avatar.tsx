@@ -35,7 +35,7 @@ export function Avatar({ src, name, size = 96 }: AvatarProps) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'var(--c-cream)',
+          color: 'var(--c-on-dark)',
           fontFamily: 'Cormorant Garamond, serif',
           fontWeight: 300,
           fontSize: Math.max(14, inner * 0.42),

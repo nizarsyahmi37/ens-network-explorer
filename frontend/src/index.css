@@ -6,6 +6,11 @@
 
 :root {
   color-scheme: light dark;
+}
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
   --c-ink: #1c1917;
   --c-paper: #f5f0e8;
   --c-cream: #faf7f2;
@@ -13,17 +18,33 @@
   --c-gold: #c9a96e;
   --c-gold-dark: #8b6914;
   --c-border-gold: rgba(201, 169, 110, 0.3);
+  --c-stone: #78716c;
+  --c-fog: #a8a29e;
+  --c-body: #44403c;
+  --c-mono: #2d3561;
+  --c-rust: #8b4513;
+  --c-rust-bg: rgba(139, 69, 19, 0.06);
+  --c-rust-border: rgba(139, 69, 19, 0.3);
+  --c-on-dark: #f5f0e8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --c-ink: #f5f0e8;
-    --c-paper: #1c1917;
-    --c-cream: #292524;
-    --c-washi: #312e2b;
-    --c-gold-dark: #c9a96e;
-    --c-border-gold: rgba(201, 169, 110, 0.22);
-  }
+[data-theme='dark'] {
+  color-scheme: dark;
+  --c-ink: #f5f0e8;
+  --c-paper: #1c1917;
+  --c-cream: #292524;
+  --c-washi: #312e2b;
+  --c-gold: #c9a96e;
+  --c-gold-dark: #c9a96e;
+  --c-border-gold: rgba(201, 169, 110, 0.22);
+  --c-stone: #a8a29e;
+  --c-fog: #78716c;
+  --c-body: #c9bfb7;
+  --c-mono: #8b96cc;
+  --c-rust: #d68559;
+  --c-rust-bg: rgba(214, 133, 89, 0.1);
+  --c-rust-border: rgba(214, 133, 89, 0.35);
+  --c-on-dark: #f5f0e8;
 }
 
 html,
@@ -88,7 +109,8 @@ body {
   }
 
   .pill {
-    @apply inline-flex items-center px-3 py-[3px] text-[10px] font-normal tracking-[0.08em] rounded-full text-stone;
+    @apply inline-flex items-center px-3 py-[3px] text-[10px] font-normal tracking-[0.08em] rounded-full;
+    color: var(--c-stone);
     background: var(--c-cream);
     border: 0.5px solid var(--c-border-gold);
   }
@@ -97,11 +119,11 @@ body {
     @apply inline-flex items-center gap-2 px-5 py-[9px] rounded-btn text-[12px] font-normal uppercase border-none cursor-pointer transition-colors;
     letter-spacing: 0.12em;
     background: var(--c-ink);
-    color: var(--c-cream);
+    color: var(--c-paper);
     font-family: 'DM Sans', sans-serif;
   }
   .btn-primary:hover {
-    background: #292524;
+    filter: brightness(0.92);
   }
   .btn-primary:disabled {
     opacity: 0.5;
@@ -138,13 +160,13 @@ body {
   .btn-danger {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-btn text-[11px] font-medium uppercase cursor-pointer;
     letter-spacing: 0.1em;
-    color: #8b4513;
-    background: rgba(139, 69, 19, 0.06);
-    border: 0.5px solid rgba(139, 69, 19, 0.3);
+    color: var(--c-rust);
+    background: var(--c-rust-bg);
+    border: 0.5px solid var(--c-rust-border);
     font-family: 'DM Sans', sans-serif;
   }
   .btn-danger:hover {
-    background: rgba(139, 69, 19, 0.12);
+    filter: brightness(1.04);
   }
 
   .input-mono {
@@ -189,27 +211,27 @@ body {
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #78716c;
+    color: var(--c-stone);
   }
   .t-body {
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
     font-weight: 300;
     line-height: 1.75;
-    color: #44403c;
+    color: var(--c-body);
   }
   .t-mono {
     font-family: 'DM Mono', monospace;
     font-weight: 300;
     letter-spacing: 0.04em;
-    color: #2d3561;
+    color: var(--c-mono);
   }
   .t-caption {
     font-family: 'DM Sans', sans-serif;
     font-size: 12px;
     font-weight: 300;
     letter-spacing: 0.06em;
-    color: #a8a29e;
+    color: var(--c-fog);
   }
 }
 

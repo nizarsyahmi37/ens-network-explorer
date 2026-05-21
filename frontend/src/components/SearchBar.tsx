@@ -46,7 +46,7 @@ export function SearchBar({ initialValue = '', placeholder = 'vitalik.eth', auto
           Resolve
         </button>
       </div>
-      <div className="mt-2 text-[10px] tracking-[0.12em] uppercase" style={{ color: showError ? '#8B4513' : '#A8A29E' }}>
+      <div className="mt-2 text-[10px] tracking-[0.12em] uppercase" style={{ color: showError ? 'var(--c-rust)' : 'var(--c-fog)' }}>
         {showError ? 'Must end in .eth' : 'Enter any .eth name to explore'}
       </div>
     </form>

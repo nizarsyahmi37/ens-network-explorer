@@ -142,7 +142,7 @@ export function GraphPage() {
               </button>
             </div>
             {skipped > 0 && (
-              <div className="t-caption mt-3" style={{ color: '#8B4513' }}>
+              <div className="t-caption mt-3" style={{ color: 'var(--c-rust)' }}>
                 Skipped {skipped} malformed line{skipped === 1 ? '' : 's'}
               </div>
             )}
@@ -169,7 +169,7 @@ export function GraphPage() {
               )}
               <div className="mt-1">Persisted edges: {persisted.length}</div>
               <div>Pasted edges: {pasted.edges.length}</div>
-              {error && <div style={{ color: '#8B4513', marginTop: 6 }}>{error}</div>}
+              {error && <div style={{ color: 'var(--c-rust)', marginTop: 6 }}>{error}</div>}
             </div>
             <div className="mt-3">
               <button type="button" className="btn-ghost" onClick={() => void refresh()} disabled={loading}>

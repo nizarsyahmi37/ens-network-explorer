@@ -55,7 +55,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
         {this.state.error.message && (
           <code
             className="t-mono text-[11px] mt-3 px-3 py-2 rounded"
-            style={{ background: 'var(--c-cream)', color: '#8B4513', maxWidth: 420 }}
+            style={{ background: 'var(--c-cream)', color: 'var(--c-rust)', maxWidth: 420 }}
           >
             {this.state.error.message}
           </code>

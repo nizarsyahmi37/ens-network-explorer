@@ -19,7 +19,7 @@ export function CopyButton({ value, label = 'Copy' }: { value: string; label?: s
       onClick={onClick}
       className="inline-flex items-center gap-1 text-[10px] tracking-[0.14em] uppercase px-2 py-1 rounded transition-colors"
       style={{
-        color: copied ? 'var(--c-gold-dark)' : '#A8A29E',
+        color: copied ? 'var(--c-gold-dark)' : 'var(--c-fog)',
         background: copied ? 'rgba(201,169,110,0.12)' : 'transparent',
         border: '0.5px solid var(--c-border-gold)',
         fontFamily: 'DM Sans',
