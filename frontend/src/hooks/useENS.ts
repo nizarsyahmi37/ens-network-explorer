@@ -9,6 +9,8 @@ interface UseENSResult {
   error: string | null;
 }
 
+const DEBOUNCE_MS = 250;
+
 export function useENS(rawName: string | undefined): UseENSResult {
   const [profile, setProfile] = useState<ENSProfile | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -34,25 +36,27 @@ export function useENS(rawName: string | undefined): UseENSResult {
     setError(null);
     setProfile(null);
 
-    fetchProfile(name)
-      .then((p) => {
-        if (cancelled) return;
-        setProfile(p);
-        if (!p.address) {
-          setError(`${name} is not registered.`);
-        }
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        console.warn('[useENS] failed', err);
-        setError('Resolution failed. Check your connection and try again.');
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
+    const timer = setTimeout(() => {
+      fetchProfile(name)
+        .then((p) => {
+          if (cancelled) return;
+          setProfile(p);
+          if (!p.address) {
+            setError(`${name} is not registered.`);
+          }
+        })
+        .catch(() => {
+          if (cancelled) return;
+          setError('Resolution failed. Check your connection and try again.');
+        })
+        .finally(() => {
+          if (!cancelled) setLoading(false);
+        });
+    }, DEBOUNCE_MS);
 
     return () => {
       cancelled = true;
+      clearTimeout(timer);
     };
   }, [rawName]);
 

@@ -48,8 +48,7 @@ export async function resolveAddress(ensName: string): Promise<string | null> {
     const provider = getProvider();
     const addr = await provider.resolveName(name);
     return addr ? getAddress(addr) : null;
-  } catch (err) {
-    console.warn('[ens] resolveAddress failed', name, err);
+  } catch {
     return null;
   }
 }
@@ -62,8 +61,8 @@ async function fetchProfileInner(ensName: string): Promise<ENSProfile> {
   let resolver: Awaited<ReturnType<typeof provider.getResolver>> = null;
   try {
     resolver = await provider.getResolver(name);
-  } catch (err) {
-    console.warn('[ens] getResolver failed', name, err);
+  } catch {
+    // Resolver lookup failed — caller handles via empty profile + error state
   }
 
   if (!resolver) {
