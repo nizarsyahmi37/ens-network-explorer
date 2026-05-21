@@ -215,13 +215,13 @@
 - [x] Vercel re-deploy triggered with correct env vars
 
 ### Final Acceptance
-- [ ] Live URL opens without errors ✅
+- [x] Live URL opens without errors ✅
 - [ ] `vitalik.eth` profile page loads ✅
 - [ ] Graph page renders from pasted pairs ✅
 - [ ] Node click routes to profile ✅
 - [ ] Edge added via form persists on refresh ✅
 - [ ] Edge deleted via graph persists on refresh ✅
-- [ ] GitHub repo is public with all code committed ✅
+- [x] GitHub repo is public with all code committed ✅
 - [ ] **URL submitted to examiner** ✅
 
 ---
