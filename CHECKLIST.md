@@ -181,12 +181,12 @@
 
 ### Verification
 - [x] `POST /api/edges/` with `{source: "vitalik.eth", target: "balajis.eth"}` returns 201 ✅
-- [ ] Edge appears in graph without reload ✅
+- [x] Edge appears in graph without reload ✅
 - [x] `DELETE /api/edges/{id}/` returns 204 ✅
-- [ ] Edge disappears from graph without reload ✅
+- [x] Edge disappears from graph without reload ✅
 - [x] Duplicate edge returns 409 ✅
 - [x] Self-loop returns 400 ✅
-- [ ] Page refresh preserves all edges ✅
+- [x] Page refresh preserves all edges ✅
 
 ---
 
