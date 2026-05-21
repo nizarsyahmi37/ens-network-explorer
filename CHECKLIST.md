@@ -10,8 +10,8 @@
 - [x] Configure Tailwind (`tailwind.config.ts`, `postcss.config.js`)
 - [x] Set up React Router with placeholder routes: `/`, `/profile/:ensName`, `/graph`
 - [x] Add `.env.example` with `VITE_API_BASE_URL`
-- [ ] Push to GitHub
-- [ ] **Deploy to Vercel** — confirm live URL returns 200 ✅
+- [x] Push to GitHub
+- [x] **Deploy to Vercel** — confirm live URL returns 200 ✅
 
 ### Backend (Django + DRF)
 - [x] `django-admin startproject config .` inside `backend/`
@@ -22,8 +22,8 @@
 - [x] Create health check endpoint `GET /api/health/` → `{"status": "ok"}`
 - [x] Add `Procfile`: `web: gunicorn config.wsgi`
 - [x] Add `runtime.txt`: `python-3.11.x`
-- [ ] Push to GitHub
-- [ ] **Deploy to Render** — provision PostgreSQL add-on, confirm `/api/health/` returns 200 ✅
+- [x] Push to GitHub
+- [x] **Deploy to Render** — provision PostgreSQL add-on, confirm `/api/health/` returns 200 ✅
 
 ---
 
