@@ -126,66 +126,66 @@
 > Goal: All edges stored in PostgreSQL; add/delete reflected live in graph.
 
 ### Django `Edge` Model (`backend/graph/models.py`)
-- [ ] Fields: `id` (UUID), `source` (CharField 255), `target` (CharField 255), `created_at` (auto_now_add)
-- [ ] `Meta: unique_together = [('source', 'target')]`
-- [ ] `clean()` validator: source ≠ target
-- [ ] Run and apply migration
+- [x] Fields: `id` (UUID), `source` (CharField 255), `target` (CharField 255), `created_at` (auto_now_add)
+- [x] `Meta: unique_together = [('source', 'target')]`
+- [x] `clean()` validator: source ≠ target
+- [x] Run and apply migration
 
 ### Serializer (`backend/graph/serializers.py`)
-- [ ] `EdgeSerializer` with fields: `id`, `source`, `target`, `created_at`
-- [ ] Validate `.eth` suffix on both source and target
-- [ ] Validate source ≠ target (400)
-- [ ] Validate uniqueness (409)
+- [x] `EdgeSerializer` with fields: `id`, `source`, `target`, `created_at`
+- [x] Validate `.eth` suffix on both source and target
+- [x] Validate source ≠ target (400)
+- [x] Validate uniqueness (409)
 
 ### Views / ViewSet (`backend/graph/views.py`)
-- [ ] `EdgeViewSet` using DRF `ModelViewSet`
-- [ ] `list` → `GET /api/edges/` (support `?node=vitalik.eth` filter)
-- [ ] `create` → `POST /api/edges/`
-- [ ] `destroy` → `DELETE /api/edges/{id}/`
-- [ ] Disable `update` and `partial_update`
+- [x] `EdgeViewSet` using DRF `ModelViewSet`
+- [x] `list` → `GET /api/edges/` (support `?node=vitalik.eth` filter)
+- [x] `create` → `POST /api/edges/`
+- [x] `destroy` → `DELETE /api/edges/{id}/`
+- [x] Disable `update` and `partial_update`
 
 ### URLs (`backend/graph/urls.py`)
-- [ ] Register router for `EdgeViewSet`
-- [ ] Wire into `config/urls.py` under `/api/`
+- [x] Register router for `EdgeViewSet`
+- [x] Wire into `config/urls.py` under `/api/`
 
 ### CORS + Security
 - [ ] `CORS_ALLOWED_ORIGINS` set to deployed Vercel URL
-- [ ] `SECRET_KEY` read from environment variable
-- [ ] `DEBUG=False` in production settings
-- [ ] `ALLOWED_HOSTS` configured
+- [x] `SECRET_KEY` read from environment variable
+- [x] `DEBUG=False` in production settings
+- [x] `ALLOWED_HOSTS` configured
 
 ### Frontend API Client (`frontend/src/services/api.ts`)
-- [ ] `getEdges()` → `GET /api/edges/`
-- [ ] `createEdge(source, target)` → `POST /api/edges/`
-- [ ] `deleteEdge(id)` → `DELETE /api/edges/{id}/`
-- [ ] All functions use `VITE_API_BASE_URL` env variable
-- [ ] Typed with `GraphEdge` interface
+- [x] `getEdges()` → `GET /api/edges/`
+- [x] `createEdge(source, target)` → `POST /api/edges/`
+- [x] `deleteEdge(id)` → `DELETE /api/edges/{id}/`
+- [x] All functions use `VITE_API_BASE_URL` env variable
+- [x] Typed with `GraphEdge` interface
 
 ### `useGraph` Hook (`frontend/src/hooks/useGraph.ts`)
-- [ ] Fetches edges from API on mount
-- [ ] `addEdge(source, target)` — calls API, updates local state
-- [ ] `deleteEdge(id)` — calls API, updates local state
-- [ ] Loading and error states
+- [x] Fetches edges from API on mount
+- [x] `addEdge(source, target)` — calls API, updates local state
+- [x] `deleteEdge(id)` — calls API, updates local state
+- [x] Loading and error states
 
 ### `<EdgeEditor>` Component (`frontend/src/components/EdgeEditor/`)
-- [ ] Two text inputs: Source ENS, Target ENS
-- [ ] "Add Edge" button → calls `addEdge`, clears inputs on success
-- [ ] Shows validation error inline
-- [ ] Shows success toast on add
+- [x] Two text inputs: Source ENS, Target ENS
+- [x] "Add Edge" button → calls `addEdge`, clears inputs on success
+- [x] Shows validation error inline
+- [x] Shows success toast on add
 
 ### Graph Page Updates
-- [ ] Graph initialises from `useGraph` (API edges) merged with textarea input edges
-- [ ] Clicking an edge opens delete confirmation tooltip
-- [ ] Confirming deletion calls `deleteEdge`, removes edge from graph
-- [ ] `<EdgeEditor>` panel rendered alongside graph
+- [x] Graph initialises from `useGraph` (API edges) merged with textarea input edges
+- [x] Clicking an edge opens delete confirmation tooltip
+- [x] Confirming deletion calls `deleteEdge`, removes edge from graph
+- [x] `<EdgeEditor>` panel rendered alongside graph
 
 ### Verification
-- [ ] `POST /api/edges/` with `{source: "vitalik.eth", target: "balajis.eth"}` returns 201 ✅
+- [x] `POST /api/edges/` with `{source: "vitalik.eth", target: "balajis.eth"}` returns 201 ✅
 - [ ] Edge appears in graph without reload ✅
-- [ ] `DELETE /api/edges/{id}/` returns 204 ✅
+- [x] `DELETE /api/edges/{id}/` returns 204 ✅
 - [ ] Edge disappears from graph without reload ✅
-- [ ] Duplicate edge returns 409 ✅
-- [ ] Self-loop returns 400 ✅
+- [x] Duplicate edge returns 409 ✅
+- [x] Self-loop returns 400 ✅
 - [ ] Page refresh preserves all edges ✅
 
 ---
