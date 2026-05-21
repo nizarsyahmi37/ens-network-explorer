@@ -206,13 +206,13 @@
 - [x] No API keys or secrets in frontend bundle
 
 ### Final Deployment Checks
-- [ ] Frontend `VITE_API_BASE_URL` points to production Render URL
-- [ ] Backend `CORS_ALLOWED_ORIGINS` includes production Vercel URL
-- [ ] `DATABASE_URL` set in Render environment (auto-injected from Render PostgreSQL)
-- [ ] `SECRET_KEY` set in Render environment (long random string)
+- [x] Frontend `VITE_API_BASE_URL` points to production Render URL
+- [x] Backend `CORS_ALLOWED_ORIGINS` includes production Vercel URL
+- [x] `DATABASE_URL` set in Render environment (auto-injected from Render PostgreSQL)
+- [x] `SECRET_KEY` set in Render environment (long random string)
 - [x] `DEBUG=False` confirmed in production
-- [ ] Run `python manage.py migrate` on production DB
-- [ ] Vercel re-deploy triggered with correct env vars
+- [x] Run `python manage.py migrate` on production DB
+- [x] Vercel re-deploy triggered with correct env vars
 
 ### Final Acceptance
 - [ ] Live URL opens without errors ✅
