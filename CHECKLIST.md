@@ -32,7 +32,7 @@
 > Goal: `/profile/vitalik.eth` renders a complete, well-styled profile card.
 
 ### ENS Resolution Service (`frontend/src/services/ens.ts`)
-- [x] Initialise `ethers.JsonRpcProvider` pointing to `https://cloudflare-eth.com`
+- [x] Initialise `ethers.JsonRpcProvider` pointing to `https://ethereum-rpc.publicnode.com`
 - [x] `resolveAddress(ensName)` → returns checksummed address or `null`
 - [x] `fetchTextRecords(ensName)` → fetches the following records in parallel:
   - [x] `avatar`
