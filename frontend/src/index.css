@@ -109,10 +109,20 @@ body {
   }
 
   .pill {
-    @apply inline-flex items-center px-3 py-[3px] text-[10px] font-normal tracking-[0.08em] rounded-full;
+    @apply inline-flex items-center gap-[6px] px-3 py-[3px] text-[10px] font-normal tracking-[0.08em] rounded-full;
     color: var(--c-stone);
     background: var(--c-cream);
     border: 0.5px solid var(--c-border-gold);
+  }
+  .pill svg {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+    color: var(--c-gold-dark);
+    transition: color 200ms ease;
+  }
+  .pill:hover svg {
+    color: var(--c-gold);
   }
 
   .btn-primary {
