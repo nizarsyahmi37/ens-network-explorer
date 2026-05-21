@@ -87,31 +87,31 @@
 > Goal: Paste a list of ENS pairs, see a force-directed graph. Click a node → profile page.
 
 ### Graph Data Model (`frontend/src/types/index.ts`)
-- [ ] Define `GraphNode { id: string, label: string, avatar?: string }`
-- [ ] Define `GraphEdge { id: string | number, source: string, target: string }`
-- [ ] Define `GraphData { nodes: GraphNode[], edges: GraphEdge[] }`
+- [x] Define `GraphNode { id: string, label: string, avatar?: string }`
+- [x] Define `GraphEdge { id: string | number, source: string, target: string }`
+- [x] Define `GraphData { nodes: GraphNode[], edges: GraphEdge[] }`
 
 ### Input Parser (`frontend/src/services/parser.ts`)
-- [ ] Parse textarea input: one pair per line, comma-separated
-- [ ] Trim whitespace, lowercase, deduplicate nodes
-- [ ] Return `GraphData`
-- [ ] Reject malformed lines silently (show count of skipped lines)
+- [x] Parse textarea input: one pair per line, comma-separated
+- [x] Trim whitespace, lowercase, deduplicate nodes
+- [x] Return `GraphData`
+- [x] Reject malformed lines silently (show count of skipped lines)
 
 ### `<ForceGraph>` Component (`frontend/src/components/Graph/ForceGraph.tsx`)
-- [ ] Initialise D3 force simulation: `forceLink`, `forceManyBody`, `forceCenter`, `forceCollide`
-- [ ] Render nodes as `<circle>` (or `<image>` if avatar available)
-- [ ] Render edges as `<line>`
-- [ ] Node labels as `<text>` below node
-- [ ] Pan & zoom via `d3.zoom()`
-- [ ] On node click: call `onNodeClick(ensName)` prop
-- [ ] On edge click: call `onEdgeClick(edge)` prop (needed for M3)
+- [x] Initialise D3 force simulation: `forceLink`, `forceManyBody`, `forceCenter`, `forceCollide`
+- [x] Render nodes as `<circle>` (or `<image>` if avatar available)
+- [x] Render edges as `<line>`
+- [x] Node labels as `<text>` below node
+- [x] Pan & zoom via `d3.zoom()`
+- [x] On node click: call `onNodeClick(ensName)` prop
+- [x] On edge click: call `onEdgeClick(edge)` prop (needed for M3)
 - [ ] Simulation stabilises within 2 s for 50 nodes
 
 ### Graph Page (`frontend/src/pages/GraphPage.tsx`)
-- [ ] Textarea for ENS pair input
-- [ ] "Load Graph" button — parses input and renders `<ForceGraph>`
-- [ ] On node click → `navigate('/profile/:ensName')`
-- [ ] Graph section sits below input panel
+- [x] Textarea for ENS pair input
+- [x] "Load Graph" button — parses input and renders `<ForceGraph>`
+- [x] On node click → `navigate('/profile/:ensName')`
+- [x] Graph section sits below input panel
 
 ### Verification
 - [ ] 5-pair input renders correct graph ✅
