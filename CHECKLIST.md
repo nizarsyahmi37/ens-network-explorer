@@ -216,11 +216,11 @@
 
 ### Final Acceptance
 - [x] Live URL opens without errors ✅
-- [ ] `vitalik.eth` profile page loads ✅
-- [ ] Graph page renders from pasted pairs ✅
-- [ ] Node click routes to profile ✅
-- [ ] Edge added via form persists on refresh ✅
-- [ ] Edge deleted via graph persists on refresh ✅
+- [x] `vitalik.eth` profile page loads ✅
+- [x] Graph page renders from pasted pairs ✅
+- [x] Node click routes to profile ✅
+- [x] Edge added via form persists on refresh ✅
+- [x] Edge deleted via graph persists on refresh ✅
 - [x] GitHub repo is public with all code committed ✅
 - [ ] **URL submitted to examiner** ✅
 
