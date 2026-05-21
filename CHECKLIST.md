@@ -193,24 +193,24 @@
 ## M4 — Polish, Validation & Final Deploy
 
 ### UX Polish
-- [ ] Loading skeletons on profile page
+- [x] Loading skeletons on profile page
 - [ ] Error boundary wrapping graph component
-- [ ] Empty state when no edges exist: "Add your first edge above"
+- [x] Empty state when no edges exist: "Add your first edge above"
 - [ ] Mobile: profile page renders cleanly at 375 px
-- [ ] Favicon and `<title>` tags set
+- [x] Favicon and `<title>` tags set
 
 ### Hardening
-- [ ] ENS input sanitised (trim, lowercase, validate `.eth`)
+- [x] ENS input sanitised (trim, lowercase, validate `.eth`)
 - [ ] API client handles network errors gracefully (show toast)
 - [ ] `console.error` removed or replaced with proper error handling
-- [ ] No API keys or secrets in frontend bundle
+- [x] No API keys or secrets in frontend bundle
 
 ### Final Deployment Checks
 - [ ] Frontend `VITE_API_BASE_URL` points to production Render URL
 - [ ] Backend `CORS_ALLOWED_ORIGINS` includes production Vercel URL
 - [ ] `DATABASE_URL` set in Render environment (auto-injected from Render PostgreSQL)
 - [ ] `SECRET_KEY` set in Render environment (long random string)
-- [ ] `DEBUG=False` confirmed in production
+- [x] `DEBUG=False` confirmed in production
 - [ ] Run `python manage.py migrate` on production DB
 - [ ] Vercel re-deploy triggered with correct env vars
 
