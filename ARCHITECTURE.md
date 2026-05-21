@@ -26,15 +26,15 @@ ENS Network Explorer is a three-tier web application:
 └──────────┼──────────────────────────┼────────────────┘
            │                          │
            ▼                          ▼
-  ┌─────────────────┐      ┌──────────────────────┐
+  ┌─────────────────┐      ┌───────────────────────┐
   │  Ethereum RPC   │      │   Django REST API     │
-  │  (Cloudflare)   │      │   (Render)            │
+  │  (PublicNode)   │      │   (Render)            │
   │                 │      │                       │
   │  ENS Resolver   │      │  /api/edges/          │
   │  Text Records   │      │  /api/health/         │
   └─────────────────┘      └──────────┬────────────┘
                                       │
-                           ┌──────────▼────────────┐
+                           ┌──────────▼─────────────┐
                            │     PostgreSQL 16      │
                            │     (Render)           │
                            │                        │
@@ -116,7 +116,7 @@ ens.fetchTextRecords("vitalik.eth")
 ENSProfile object (only truthy values)
 ```
 
-All RPC calls go to `https://cloudflare-eth.com` (Ethereum mainnet, public, no key required).
+All RPC calls go to `https://ethereum-rpc.publicnode.com` (Ethereum mainnet, public, no key required).
 
 ### 2.4 Graph Data Flow
 
@@ -341,7 +341,7 @@ DJANGO_SETTINGS_MODULE=config.settings.production
 ### ENS Resolution
 - Text records fetched in parallel via `Promise.allSettled`
 - Results memoised in React state — no re-fetch on re-render
-- Cloudflare ETH gateway: ~100–300 ms per call typically
+- PublicNode Ethereum RPC: ~100–300 ms per call typically
 
 ### Graph Rendering
 - D3 simulation runs on CPU in main thread
