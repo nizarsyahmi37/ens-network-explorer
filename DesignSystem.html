@@ -1,0 +1,708 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap');
+
+  :root {
+    --ink: #1C1917;
+    --ink-soft: #292524;
+    --ink-muted: #44403C;
+    --stone: #78716C;
+    --fog: #A8A29E;
+    --paper: #F5F0E8;
+    --cream: #FAF7F2;
+    --white: #FEFCFA;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --gold-dark: #8B6914;
+    --moss: #4A5240;
+    --sage: #6B7A5A;
+    --rust: #8B4513;
+    --indigo: #2D3561;
+    --indigo-light: #4A5280;
+    --border: rgba(28,25,23,0.12);
+    --border-gold: rgba(201,169,110,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .ds-wrap {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    padding: 40px 36px;
+    line-height: 1.6;
+  }
+
+  .ds-masthead {
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 0.5px solid var(--border-gold);
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .ds-masthead::before {
+    content: '間';
+    font-family: 'DM Mono', monospace;
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--gold-light);
+    display: block;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .ds-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .ds-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-top: 10px;
+  }
+
+  .ds-rule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px auto;
+    max-width: 280px;
+  }
+  .ds-rule-line {
+    flex: 1;
+    height: 0.5px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .ds-rule-diamond {
+    width: 5px; height: 5px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .ds-section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ds-section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border-gold);
+  }
+
+  .ds-section { margin-bottom: 44px; }
+
+  /* COLOR PALETTE */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 0.5px solid var(--border-gold);
+  }
+
+  .swatch {
+    padding: 20px 0 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .swatch-dot {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 0.5px solid var(--border);
+  }
+  .swatch-name {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .swatch-hex {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+  }
+
+  /* TYPOGRAPHY */
+  .type-specimens { display: flex; flex-direction: column; gap: 0; }
+
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta {
+    min-width: 110px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fog);
+    flex-shrink: 0;
+  }
+  .type-sample { flex: 1; }
+
+  .t-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .t-display-em {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    color: var(--gold-dark);
+    line-height: 1.1;
+  }
+  .t-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .t-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .t-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    line-height: 1.75;
+  }
+  .t-mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--indigo);
+  }
+  .t-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--fog);
+  }
+
+  /* UI COMPONENTS */
+  .components-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .comp-block {
+    background: var(--white);
+    border: 0.5px solid var(--border-gold);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .comp-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fog);
+    margin-bottom: 14px;
+  }
+
+  /* Profile card mini */
+  .profile-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .avatar-ring {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    padding: 2px;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .avatar-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo) 0%, var(--moss) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+  }
+  .ens-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .eth-address {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--fog);
+    letter-spacing: 0.04em;
+  }
+  .social-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .pill {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 0.5px solid var(--border-gold);
+    color: var(--stone);
+    background: var(--cream);
+  }
+
+  /* Search input */
+  .search-field {
+    position: relative;
+  }
+  .search-input-mock {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--cream);
+    border: 0.5px solid var(--border-gold);
+    border-radius: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search-input-mock span { color: var(--fog); }
+  .search-hint {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--fog);
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* Graph node preview */
+  .graph-preview {
+    position: relative;
+    height: 130px;
+  }
+  .gnode {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+  .gnode-circle {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.03em;
+    border: 1px solid var(--gold);
+  }
+  .gnode-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+    white-space: nowrap;
+  }
+  .gedge {
+    position: absolute;
+    height: 0.5px;
+    background: var(--gold);
+    opacity: 0.4;
+    transform-origin: left center;
+  }
+
+  /* Button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: transparent;
+    color: var(--ink);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 0.5px solid var(--border-gold);
+    cursor: pointer;
+  }
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* SPACING / MOTIF */
+  .motif-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .motif-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .motif-box {
+    background: var(--white);
+    border: 0.5px solid var(--border-gold);
+  }
+  .motif-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--fog);
+    text-transform: uppercase;
+  }
+  .radius-none { border-radius: 0; width: 36px; height: 36px; }
+  .radius-sm   { border-radius: 4px; width: 36px; height: 36px; }
+  .radius-md   { border-radius: 8px; width: 36px; height: 36px; }
+  .radius-full { border-radius: 50%; width: 36px; height: 36px; }
+
+  /* SVG lines - drawn dynamically */
+  .graph-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+
+  /* dark mode */
+  @media (prefers-color-scheme: dark) {
+    .ds-wrap { background: #1C1917; color: #F5F0E8; }
+    .comp-block { background: #292524; }
+    .search-input-mock { background: #292524; color: #F5F0E8; }
+    .pill { background: #292524; }
+    :root {
+      --ink: #F5F0E8;
+      --ink-soft: #E7E0D8;
+      --ink-muted: #C9BFB7;
+      --stone: #A8A29E;
+      --fog: #78716C;
+      --paper: #1C1917;
+      --cream: #292524;
+      --white: #312E2B;
+      --border: rgba(245,240,232,0.10);
+      --border-gold: rgba(201,169,110,0.22);
+      --gold-dark: #C9A96E;
+    }
+  }
+</style>
+
+<div class="ds-wrap">
+
+  <div class="ds-masthead">
+    <div class="ds-title">Japandi ENS</div>
+    <div class="ds-subtitle">Design Language · v 1.0 · ENS Network Explorer</div>
+    <div class="ds-rule">
+      <div class="ds-rule-line"></div>
+      <div class="ds-rule-diamond"></div>
+      <div class="ds-rule-line"></div>
+    </div>
+    <div class="t-caption" style="max-width:360px;margin:0 auto;font-size:12px;letter-spacing:0.06em;opacity:0.75;">Wabi-sabi warmth · Hygge restraint · On-chain identity<br>The art of meaningful emptiness — 間 <em>(Ma)</em></div>
+  </div>
+
+  <!-- COLOR PALETTE -->
+  <div class="ds-section">
+    <div class="ds-section-label">Color Palette</div>
+    <div class="palette-grid">
+      <div class="swatch" style="background:#1C1917;">
+        <div class="swatch-dot" style="background:#1C1917;border-color:rgba(255,255,255,0.15);"></div>
+        <div class="swatch-name" style="color:#A8A29E;">Sumi Ink</div>
+        <div class="swatch-hex" style="color:#78716C;">#1C1917</div>
+      </div>
+      <div class="swatch" style="background:#F5F0E8;">
+        <div class="swatch-dot" style="background:#F5F0E8;"></div>
+        <div class="swatch-name" style="color:#44403C;">Washi Paper</div>
+        <div class="swatch-hex" style="color:#78716C;">#F5F0E8</div>
+      </div>
+      <div class="swatch" style="background:#C9A96E;">
+        <div class="swatch-dot" style="background:#C9A96E;"></div>
+        <div class="swatch-name" style="color:#3D2B08;">Kintsugi Gold</div>
+        <div class="swatch-hex" style="color:#8B6914;">#C9A96E</div>
+      </div>
+      <div class="swatch" style="background:#4A5240;">
+        <div class="swatch-dot" style="background:#4A5240;border-color:rgba(255,255,255,0.1);"></div>
+        <div class="swatch-name" style="color:#A8B89A;">Matcha Moss</div>
+        <div class="swatch-hex" style="color:#6B7A5A;">#4A5240</div>
+      </div>
+      <div class="swatch" style="background:#2D3561;">
+        <div class="swatch-dot" style="background:#2D3561;border-color:rgba(255,255,255,0.1);"></div>
+        <div class="swatch-name" style="color:#8B96CC;">Aizome Indigo</div>
+        <div class="swatch-hex" style="color:#6B7A9E;">#2D3561</div>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+      <div style="padding:12px;background:var(--white);border:0.5px solid var(--border-gold);border-radius:8px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fog);margin-bottom:8px;">Supporting Tones</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:16px;height:16px;border-radius:3px;background:#78716C;flex-shrink:0;"></div><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--stone);">#78716C Stone</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:16px;height:16px;border-radius:3px;background:#A8A29E;flex-shrink:0;"></div><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--stone);">#A8A29E Fog</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:16px;height:16px;border-radius:3px;background:#E8D5B0;flex-shrink:0;"></div><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--stone);">#E8D5B0 Pale Gold</span></div>
+        </div>
+      </div>
+      <div style="padding:12px;background:var(--white);border:0.5px solid var(--border-gold);border-radius:8px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fog);margin-bottom:8px;">Contrast Ratios</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:10px;color:var(--stone);">Ink / Washi</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--moss);font-weight:400;">14.8 : 1 ✦</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:10px;color:var(--stone);">Ink / Gold</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--moss);font-weight:400;">7.2 : 1 ✦</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:10px;color:var(--stone);">Ink / Fog</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--fog);font-weight:400;">5.9 : 1 ✦</span></div>
+        </div>
+      </div>
+      <div style="padding:12px;background:var(--white);border:0.5px solid var(--border-gold);border-radius:8px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fog);margin-bottom:8px;">WCAG Rating</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:10px;color:var(--stone);">Body text</span><span style="font-size:10px;padding:2px 8px;background:#4A5240;color:#A8B89A;border-radius:3px;letter-spacing:0.05em;">AAA</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:10px;color:var(--stone);">Large text</span><span style="font-size:10px;padding:2px 8px;background:#4A5240;color:#A8B89A;border-radius:3px;letter-spacing:0.05em;">AAA</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:10px;color:var(--stone);">UI elements</span><span style="font-size:10px;padding:2px 8px;background:#4A5240;color:#A8B89A;border-radius:3px;letter-spacing:0.05em;">AA+</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="ds-section">
+    <div class="ds-section-label">Typography</div>
+    <div style="background:var(--white);border:0.5px solid var(--border-gold);border-radius:12px;padding:24px 24px 8px;">
+      <div class="type-specimens">
+        <div class="type-row">
+          <div class="type-meta">Display</div>
+          <div class="type-sample"><span class="t-display">Network of Names</span></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">Display / Italic</div>
+          <div class="type-sample"><span class="t-display-em">vitalik.eth</span></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">Heading</div>
+          <div class="type-sample"><span class="t-heading">On-chain identity, visualised</span></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">Label / caps</div>
+          <div class="type-sample"><span class="t-label">Ethereum Name Service</span></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">Body</div>
+          <div class="type-sample"><span class="t-body">Every .eth name holds a story. Resolve, explore, and map the social fabric of the decentralised web.</span></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">Mono / address</div>
+          <div class="type-sample"><span class="t-mono">0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045</span></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">Caption</div>
+          <div class="type-sample"><span class="t-caption">Resolved via Cloudflare Ethereum Gateway · Mainnet</span></div>
+        </div>
+      </div>
+      <div style="margin-top:16px;padding-top:16px;border-top:0.5px solid var(--border);display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding-bottom:16px;">
+        <div><div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fog);margin-bottom:5px;">Serif</div><div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:300;color:var(--stone);">Cormorant Garamond</div><div style="font-size:10px;color:var(--fog);margin-top:2px;">Headlines · Display · ENS names</div></div>
+        <div><div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fog);margin-bottom:5px;">Sans</div><div style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;color:var(--stone);">DM Sans</div><div style="font-size:10px;color:var(--fog);margin-top:2px;">Body · UI Labels · Navigation</div></div>
+        <div><div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fog);margin-bottom:5px;">Mono</div><div style="font-family:'DM Mono',monospace;font-size:13px;font-weight:300;color:var(--stone);">DM Mono</div><div style="font-size:10px;color:var(--fog);margin-top:2px;">Addresses · Hashes · Code</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UI COMPONENTS -->
+  <div class="ds-section">
+    <div class="ds-section-label">UI Components</div>
+    <div class="components-grid">
+      <!-- Profile card -->
+      <div class="comp-block">
+        <div class="comp-label">Profile Card</div>
+        <div class="profile-mini">
+          <div class="avatar-ring">
+            <div class="avatar-inner">V</div>
+          </div>
+          <div class="ens-name">vitalik.eth</div>
+          <div class="eth-address">0xd8dA6B…96045</div>
+          <div style="font-size:12px;font-weight:300;color:var(--stone);text-align:center;max-width:180px;line-height:1.5;">Founder of Ethereum. Building a decentralised future.</div>
+          <div class="social-pills">
+            <div class="pill">@VitalikButerin</div>
+            <div class="pill">vitalik.ca</div>
+            <div class="pill">github</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search + Graph node preview -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="comp-block">
+          <div class="comp-label">ENS Search</div>
+          <div class="search-field">
+            <div class="search-input-mock">
+              <span style="font-family:'DM Mono',monospace;font-size:13px;font-weight:300;color:var(--ink);">vitalik.eth</span>
+              <span style="font-size:10px;letter-spacing:0.1em;background:var(--gold);color:var(--ink);padding:3px 10px;border-radius:4px;text-transform:uppercase;font-family:'DM Sans',sans-serif;">Resolve</span>
+            </div>
+            <div class="search-hint">Enter any .eth name to explore</div>
+          </div>
+        </div>
+        <div class="comp-block">
+          <div class="comp-label">Graph Node</div>
+          <div class="graph-preview">
+            <svg class="graph-svg" viewBox="0 0 260 130">
+              <line x1="65" y1="65" x2="130" y2="40" stroke="#C9A96E" stroke-width="0.5" opacity="0.5"/>
+              <line x1="65" y1="65" x2="195" y2="65" stroke="#C9A96E" stroke-width="0.5" opacity="0.5"/>
+              <line x1="130" y1="40" x2="195" y2="65" stroke="#C9A96E" stroke-width="0.5" opacity="0.3"/>
+              <circle cx="65" cy="65" r="22" fill="#2D3561" stroke="#C9A96E" stroke-width="0.8"/>
+              <text x="65" y="69" font-family="DM Mono" font-size="9" font-weight="300" fill="#C9A96E" text-anchor="middle" letter-spacing="0.5">V</text>
+              <circle cx="130" cy="40" r="16" fill="#4A5240" stroke="#C9A96E" stroke-width="0.5" opacity="0.9"/>
+              <text x="130" y="44" font-family="DM Mono" font-size="8" font-weight="300" fill="#E8D5B0" text-anchor="middle">B</text>
+              <circle cx="195" cy="65" r="14" fill="#292524" stroke="#C9A96E" stroke-width="0.5" opacity="0.9"/>
+              <text x="195" y="69" font-family="DM Mono" font-size="7" font-weight="300" fill="#A8A29E" text-anchor="middle">S</text>
+              <text x="65" y="95" font-family="DM Sans" font-size="9" fill="#78716C" text-anchor="middle">vitalik.eth</text>
+              <text x="130" y="65" font-family="DM Sans" font-size="8" fill="#78716C" text-anchor="middle">balajis.eth</text>
+              <text x="195" y="88" font-family="DM Sans" font-size="8" fill="#78716C" text-anchor="middle">naval.eth</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div style="margin-top:14px;background:var(--white);border:0.5px solid var(--border-gold);border-radius:12px;padding:20px;">
+      <div class="comp-label">Buttons & Actions</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+        <button class="btn-primary">Explore Graph</button>
+        <button class="btn-gold">Add Edge</button>
+        <button class="btn-ghost">View Profile</button>
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 16px;border:0.5px solid rgba(139,69,19,0.3);border-radius:6px;background:rgba(139,69,19,0.06);">
+          <span style="font-size:12px;font-weight:400;letter-spacing:0.1em;color:#8B4513;text-transform:uppercase;font-family:'DM Sans',sans-serif;">Remove</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPACING & MOTIFS -->
+  <div class="ds-section" style="margin-bottom:0;">
+    <div class="ds-section-label">Design Motifs</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="background:var(--white);border:0.5px solid var(--border-gold);border-radius:12px;padding:20px;">
+        <div class="comp-label">Corner Radius</div>
+        <div class="motif-row">
+          <div class="motif-block"><div class="motif-box radius-none"></div><div class="motif-label">0 — raw</div></div>
+          <div class="motif-block"><div class="motif-box radius-sm"></div><div class="motif-label">4px — sm</div></div>
+          <div class="motif-block"><div class="motif-box radius-md"></div><div class="motif-label">8px — md</div></div>
+          <div class="motif-block"><div class="motif-box radius-full"></div><div class="motif-label">50% — full</div></div>
+        </div>
+        <div style="margin-top:14px;font-size:11px;font-weight:300;color:var(--fog);line-height:1.6;">Cards use 12px. Inputs use 8px. Avatars use 50%. Buttons use 6px. Sharp corners for gold accent lines.</div>
+      </div>
+      <div style="background:var(--white);border:0.5px solid var(--border-gold);border-radius:12px;padding:20px;">
+        <div class="comp-label">Ma (間) — Negative Space</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
+          <div style="height:2px;background:var(--border-gold);border-radius:1px;width:100%;"></div>
+          <div style="height:1px;background:var(--border-gold);border-radius:1px;width:70%;"></div>
+          <div style="height:0.5px;background:var(--border-gold);border-radius:1px;width:40%;"></div>
+        </div>
+        <div style="font-size:11px;font-weight:300;color:var(--fog);line-height:1.6;">Stroke hierarchy: 2px accent, 1px divider, 0.5px structural. Gold borders only — never grey. Generous whitespace is the design. Emptiness is not absence.</div>
+        <div style="margin-top:12px;display:flex;align-items:center;gap:8px;">
+          <div style="flex:1;height:0.5px;background:var(--gold);opacity:0.4;"></div>
+          <div style="width:4px;height:4px;background:var(--gold);transform:rotate(45deg);opacity:0.7;"></div>
+          <div style="flex:1;height:0.5px;background:var(--gold);opacity:0.4;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;background:var(--ink);border-radius:12px;padding:24px;display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:0.06em;color:#F5F0E8;">Dark Mode — Sumi Ground</div>
+        <div style="font-size:11px;letter-spacing:0.14em;color:#78716C;margin-top:4px;text-transform:uppercase;">Primary surface · #1C1917</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+        <div style="font-family:'DM Mono',monospace;font-size:12px;color:#C9A96E;letter-spacing:0.04em;">vitalik.eth</div>
+        <div style="font-size:11px;color:#78716C;letter-spacing:0.06em;">0xd8dA6B…96045</div>
+        <div style="display:flex;gap:6px;margin-top:2px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#C9A96E;opacity:0.9;"></div>
+          <div style="width:8px;height:8px;border-radius:50%;background:#4A5240;opacity:0.7;"></div>
+          <div style="width:8px;height:8px;border-radius:50%;background:#2D3561;opacity:0.7;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
